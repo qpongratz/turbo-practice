@@ -9,7 +9,7 @@ class QuotesTest < ApplicationSystemTestCase
     # When we visit the Quotes#index page
     # We expect to see a title with the text "Quotes"
     visit quotes_path
-    asser_selector "h1", text: "Quotes"
+    assert_selector "h1", text: "Quotes"
 
     # When we click on the link with the text "New Quote"
     # we expect to land on a page with the title "New Quote"
@@ -19,7 +19,7 @@ class QuotesTest < ApplicationSystemTestCase
     # When we fill in the name input with "Capybara quote"
     # and we click on "Create Quote"
     fill_in "Name", with: "Capybara quote"
-    click_on "Create quote"
+    click_on "Create Quote"
 
     # We expect to be back on the page with the title "Quotes"
     # and to see our "Capybara quote" added to the list
@@ -42,7 +42,7 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Edit quote'
 
     fill_in 'Name', with: 'Updated quote'
-    click_on 'Update quote'
+    click_on 'Update Quote'
 
     assert_selector 'h1', text: 'Quotes'
     assert_text 'Updated quote'
