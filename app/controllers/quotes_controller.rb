@@ -5,7 +5,9 @@ class QuotesController < ApplicationController
     @quotes = current_company.quotes.ordered
   end
 
-  def show; end
+  def show
+    @line_item_dates = @quote.line_item_dates.ordered
+  end
 
   def new
     @quote = Quote.new
@@ -31,7 +33,7 @@ class QuotesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to quotes_path, notice: 'Quote was successfully updated.' }
         format.turbo_stream { flash.now[:notice] = 'Quote was successfully updated.' }
-      end 
+      end
     else
       render :edit, status: :unprocessable_entity
     end
